@@ -1,5 +1,6 @@
 import { Formik, Form } from "formik";
 import { Button, VStack } from "@chakra-ui/react";
+import { PRIMARY, PRIMARY_HOVER, SECONDARY } from "../../style/COLORS";
 
 const FormContent = ({ initialValues, onSubmit,submitName, children }) => {
   return (
@@ -12,11 +13,11 @@ const FormContent = ({ initialValues, onSubmit,submitName, children }) => {
           <Button
             isLoading={props.isSubmitting}
             type="submit"
-            bgColor="#950101"
+            bgColor={PRIMARY}
             w="full"
             p="7"
-            _hover={{ bg: "#730202" }}
-            _active={{ bg: "#730202" }}
+            _hover={{ bg: PRIMARY_HOVER }}
+            _active={{ bg: SECONDARY }}
           >
             {submitName}
           </Button>

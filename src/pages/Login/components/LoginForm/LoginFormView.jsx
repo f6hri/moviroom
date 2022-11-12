@@ -7,6 +7,7 @@ import {
 import FormInput from "../../../../components/Form/FormInput";
 import TextLink from "../../../../components/Link/TextLink";
 import {SIGNUP} from "../../../../navigation/CONSTANTS";
+import {TEXT_SECONDARY} from "../../../../style/COLORS";
 import login from "../../../../utils/auth/login";
 
 
@@ -34,7 +35,7 @@ const LoginFormView = () => {
       </FormContent>
 
       <Box display="flex" justifyContent="center" gap="2" mt="5">
-        <Text fontSize="sm" color="#626262">
+        <Text fontSize="sm" color={TEXT_SECONDARY}>
           Dont haven't account
         </Text>
         <TextLink href={SIGNUP} name="Sign up" />
