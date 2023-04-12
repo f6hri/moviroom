@@ -1,0 +1,1 @@
+export { CardSkeletonContainer as default } from "./CardSkeletonContainer";
