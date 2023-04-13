@@ -3,15 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { Container } from "../Layout";
-import { ButtonLink } from "../Shared/Link";
-import { FiArrowLeft, FiSearch } from "react-icons/fi";
+import { FiArrowLeft, FiMenu } from "react-icons/fi";
+import NavbarMenu from "./NavbarMenu";
 
 export const NavbarContainer: React.FC = () => {
   const route = useRouter();
   return (
-    <nav className={`py-5 bg-dark sticky top-0 z-10`}>
+    <nav className={`${styles.root.style} ${styles.root.responsive}`}>
       <Container>
-        <div className="flex items-center gap-8">
+        <div className={`${styles.navContent.style}`}>
           {route.pathname != "/" && (
             <button onClick={() => route.back()}>
               <FiArrowLeft />
@@ -25,24 +25,19 @@ export const NavbarContainer: React.FC = () => {
               height={100}
             />
           </Link>
-          <div className={`flex items-center gap-2`}>
-            <ButtonLink
-              href="/series"
-              title="Diziler"
-              customStyle={`${
-                route.pathname === "/series" && "bg-primary pointer-events-none"
-              }`}
-            />
-            <ButtonLink
-              href="/search"
-              icon={<FiSearch />}
-              customStyle={`${
-                route.pathname === "/search" && "bg-primary pointer-events-none"
-              }`}
-            />
-          </div>
+          <NavbarMenu />
         </div>
       </Container>
     </nav>
   );
+};
+
+const styles = {
+  root: {
+    style: `py-3 bg-dark sticky top-0 z-20 `,
+    responsive: `md:hidden block `,
+  },
+  navContent:{
+    style:`flex items-center justify-between gap-8 `
+  }
 };

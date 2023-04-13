@@ -9,7 +9,7 @@ export const HeroCardContainer: React.FC<HeroCardProps> = ({
 }) => {
   return (
     <section
-      className={`rounded-lg overflow-hidden mb-10 md:mx-10 bg-[url('https://www.themoviedb.org/t/p/original/84XPpjGvxNyExjSuLQe0SzioErt.jpg')] bg-cover bg-center h-[22em] relative`}
+      className={`rounded-lg overflow-hidden mb-10 bg-[url('https://www.themoviedb.org/t/p/original/84XPpjGvxNyExjSuLQe0SzioErt.jpg')] bg-cover bg-center h-[22em] relative`}
     >
       <div
         className={`absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-transparent`}
@@ -25,3 +25,4 @@ export const HeroCardContainer: React.FC<HeroCardProps> = ({
     </section>
   );
 };
+

@@ -1,6 +1,5 @@
 export interface LinkProps {
-    href: string;
-    title?: string;
-    icon?: React.ReactNode;
-    customStyle?: string;
+  href: string;
+  children: string | React.ReactNode;
+  customStyle?: string;
 }
