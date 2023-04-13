@@ -2,9 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { Container, Main } from "@/components/Layout";
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
+import { ResponsiveLayout } from "@/components/Layout";
 import Loader from "@/components/Shared/Loader";
 import FilmCard from "@/components/FilmCard";
 import HeroCard from "@/components/HeroCard";
@@ -36,11 +34,8 @@ const Index: React.FC = () => {
       <Head>
         <title>Moviroom</title>
       </Head>
-      <Navbar />
-      <Main customStyle={`${styles.root.style} ${styles.root.responsive}`}>
-        <Sidebar />
-        <Container customStyle={`${styles.container.responsive}`}>
-          {films.length === 0 ? (
+      <ResponsiveLayout>
+      {films.length === 0 ? (
             <Loader />
           ) : (
             <div className={`${styles.content.style} ${styles.content.responsive}`}>
@@ -57,8 +52,7 @@ const Index: React.FC = () => {
               </div>
             </div>
           )}
-        </Container>
-      </Main>
+      </ResponsiveLayout>
     </>
   );
 };

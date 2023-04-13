@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { FiPlayCircle } from "react-icons/fi";
 import Navbar from "@/components/Navbar";
 import Loader from "@/components/Shared/Loader";
-import { ButtonLink } from "@/components/Shared/Link";
+import { DefaultLink } from "@/components/Shared/Link";
 
 type Eposide = {
     title: string;
@@ -72,7 +72,9 @@ const Series: React.FC = () => {
                                     <Badge title={detail.genre} color="bg-cyan-600" />
                                 </div>
                                 <p className={`text-lg`}>{detail.info}</p>
-                                <ButtonLink href={`/watch/${id}`} icon={<FiPlayCircle />} title="İzle" customStyle="bg-primary/75" />
+                                <DefaultLink href={`/watch/${id}`} customStyle={`text-lg p-1 px-8 rounded-lg w-fit bg-primary hover:bg-red-800 transition ease`}>
+                                    İzle
+                                </DefaultLink>
                             </div>
                         </div>
                     </Hero>

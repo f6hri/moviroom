@@ -1,5 +1,6 @@
 import { HeroCardProps } from "./interface";
 import Badge from "../Shared/Badge";
+import { DefaultLink } from "../Shared/Link";
 
 export const HeroCardContainer: React.FC<HeroCardProps> = ({
   id,
@@ -15,10 +16,12 @@ export const HeroCardContainer: React.FC<HeroCardProps> = ({
         className={`absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-primary/80 to-transparent`}
       >
         <div className={`absolute left-5 bottom-5 right-5`}>
+          <DefaultLink href={`/series/${id}`}>
           <h3 className={`text-4xl font-semibold flex items-center gap-3`}>
             {title}{" "}
             <Badge title={imdb} color="bg-yellow-500" customStyle="text-xl" />
           </h3>
+          </DefaultLink>
           <p className={`my-2 text-lg truncate`}>{desc}</p>
         </div>
       </div>

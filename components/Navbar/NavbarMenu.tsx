@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FiDelete, FiMenu, FiX } from "react-icons/fi";
+import { FiCompass, FiDelete, FiMenu, FiSearch, FiTv, FiX } from "react-icons/fi";
+import NavbarMenuLink from "./NavbarMenuLink";
 
 const NavbarMenu: React.FC = () => {
   const [isOpen, open] = useState(false);
@@ -26,6 +27,11 @@ const NavbarMenu: React.FC = () => {
         >
           <FiX />
         </button>
+        <nav className={`${styles.navContent.style}`}>
+          <NavbarMenuLink href="/" icon={<FiCompass />} title="Keşfet"/>
+          <NavbarMenuLink href="/series" icon={<FiTv />} title="Diziler"/>
+          <NavbarMenuLink href="/search" icon={<FiSearch />} title="Arama Yap"/>
+        </nav>
       </div>
     </>
   );
@@ -33,7 +39,7 @@ const NavbarMenu: React.FC = () => {
 
 const styles = {
   menuContainer: {
-    style: `fixed z-20 left-0 top-0 right-0 bottom-0 bg-primary `,
+    style: `fixed z-20 left-0 top-0 right-0 bottom-0 bg-dark flex justify-center items-center `,
     transition:`transition transform ease-in `
   },
   menuButton: {
@@ -42,6 +48,9 @@ const styles = {
   closeButton: {
     style: `absolute right-5 top-5 text-4xl `,
   },
+  navContent:{
+    style:`flex flex-col gap-6 `
+  }
 };
 
 export default NavbarMenu;

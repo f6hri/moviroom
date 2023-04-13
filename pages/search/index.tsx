@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 
-import { Container, Main } from "@/components/Layout";
+import { ResponsiveLayout } from "@/components/Layout";
 import Sidebar from "@/components/Sidebar";
 import CardSkeleton from "@/components/CardSkeleton";
 import FilmCard from "@/components/FilmCard";
@@ -33,40 +33,37 @@ const Search: React.FC = () => {
       <Head>
         <title>Arama Yap</title>
       </Head>
-      <Main customStyle={`grid grid-cols-6 relative`}>
-        <Sidebar />
-        <Container customStyle={`col-span-5`}>
-          <div className={`md:w-[50em] mt-5 mx-auto flex gap-4`}>
-            <input
-              onChange={(e) => setQuery(e.target.value)}
-              className={`bg-darkAlpha w-full p-3 text-md rounded-md`}
-              placeholder="Arama yap..."
-              type="text"
-            />
-            <button
-              type="submit"
-              onClick={fetchResults}
-              className={`p-3 bg-primary/75 rounded-md px-4 hover:bg-primary transition ease-in`}
-            >
-              <FiSearch />
-            </button>
-          </div>
-          <div className="flex gap-10 flex-wrap my-10 justify-center">
-            {results.length === 0 && loading === true ? (
-              <>
-                <CardSkeleton />
-                <CardSkeleton />
-              </>
-            ) : (
-              <>
-                {results.map((item: any) => (
-                  <FilmCard key={item.id} poster={item.poster} id={item.id} />
-                ))}
-              </>
-            )}
-          </div>
-        </Container>
-      </Main>
+      <ResponsiveLayout>
+        <div className={`md:w-[50em] mt-5 mx-auto flex gap-4`}>
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            className={`bg-darkAlpha w-full p-3 text-md rounded-md`}
+            placeholder="Arama yap..."
+            type="text"
+          />
+          <button
+            type="submit"
+            onClick={fetchResults}
+            className={`p-3 bg-primary/75 rounded-md px-4 hover:bg-primary transition ease-in`}
+          >
+            <FiSearch />
+          </button>
+        </div>
+        <div className="flex gap-10 flex-wrap my-10 justify-center">
+          {results.length === 0 && loading === true ? (
+            <>
+              <CardSkeleton />
+              <CardSkeleton />
+            </>
+          ) : (
+            <>
+              {results.map((item: any) => (
+                <FilmCard key={item.id} poster={item.poster} id={item.id} />
+              ))}
+            </>
+          )}
+        </div>
+      </ResponsiveLayout>
     </>
   );
 };
