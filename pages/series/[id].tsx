@@ -61,18 +61,18 @@ const Series: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    <Hero>
-                        <div className={`flex gap-5 flex-wrap items-center md:flex-nowrap`}>
-                            <Image className={`rounded-md`} src={detail.poster} width={180} height={180} alt="poster" />
+                    <Hero customStyle={`flex justify-center`}>
+                        <div className={`flex gap-5 flex-wrap items-center md:flex-nowrap text-center md:text-start`}>
+                            <Image className={`rounded-md mx-auto`} src={detail.poster} width={180} height={180} alt="poster" />
                             <div className={`flex flex-col gap-3`}>
                                 <h1 className={`text-3xl`}>{detail.title}</h1>
-                                <div className={`flex items-center gap-2`}>
+                                <div className={`flex md:items-center justify-center gap-2`}>
                                     <Badge title={detail.date} color="bg-gray-600" />
                                     <Badge title={detail.imdb} color="bg-yellow-500" />
                                     <Badge title={detail.genre} color="bg-cyan-600" />
                                 </div>
                                 <p className={`text-lg`}>{detail.info}</p>
-                                <DefaultLink href={`/watch/${id}`} customStyle={`text-lg p-1 px-8 rounded-lg w-fit bg-primary hover:bg-red-800 transition ease`}>
+                                <DefaultLink href={`/watch/${id}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit bg-primary hover:bg-red-800 transition ease`}>
                                     İzle
                                 </DefaultLink>
                             </div>
