@@ -15,13 +15,18 @@ type Eposide = {
     embedUrl: string;
 }
 
+type Genre = {
+    id:number;
+    name:string
+}
+
 type Detail = {
     title: string;
     poster: string;
     backdrop: string;
     imdb: string;
     date: string;
-    genres: Object[];
+    genres: Genre[];
     info: string;
     eposides: Eposide[]
 }
