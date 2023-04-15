@@ -18,9 +18,10 @@ type Eposide = {
 type Detail = {
     title: string;
     poster: string;
+    backdrop: string;
     imdb: string;
     date: string;
-    genre: string;
+    genres: Object[];
     info: string;
     eposides: Eposide[]
 }
@@ -29,9 +30,10 @@ const Series: React.FC = () => {
     const [detail, setDetail] = useState<Detail>({
         title: "",
         poster: "",
+        backdrop: "",
         imdb: "",
         date: "",
-        genre: "",
+        genres: [],
         info: "",
         eposides: []
     });
@@ -61,15 +63,19 @@ const Series: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    <Hero customStyle={`flex justify-center`}>
+                    <Hero backdrop={detail.backdrop} customStyle={`flex justify-center`}>
                         <div className={`flex gap-5 flex-wrap items-center md:flex-nowrap text-center md:text-start`}>
-                            <Image className={`rounded-md mx-auto`} src={detail.poster} width={180} height={180} alt="poster" />
+                            <Image className={`rounded-md mx-auto`} src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detail.poster}`} width={180} height={180} alt="poster" />
                             <div className={`flex flex-col gap-3`}>
                                 <h1 className={`text-3xl`}>{detail.title}</h1>
-                                <div className={`flex md:items-center justify-center gap-2`}>
+                                <div className={`flex md:justify-start md:items-center flex-wrap justify-center gap-2`}>
                                     <Badge title={detail.date} color="bg-gray-600" />
                                     <Badge title={detail.imdb} color="bg-yellow-500" />
-                                    <Badge title={detail.genre} color="bg-cyan-600" />
+                                    {
+                                        detail.genres.map((genre, index) => (
+                                            <Badge key={index} title={genre.name} color="bg-cyan-500" />
+                                        ))
+                                    }
                                 </div>
                                 <p className={`text-lg`}>{detail.info}</p>
                                 <DefaultLink href={`/watch/${id}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit bg-primary hover:bg-red-800 transition ease`}>

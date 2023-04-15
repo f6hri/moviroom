@@ -21,7 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Film[] | Error>
                 if (doc.data().title.search(eval(`/${q}/i`)) >= 0) {
                     out.push({
                         id: doc.id,
-                        poster: doc.data().poster
+                        poster: doc.data().details.poster_path
                     })
                 }
             });

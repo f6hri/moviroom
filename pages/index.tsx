@@ -12,7 +12,8 @@ export type Films = {
   poster: string;
   title: string;
   info: string;
-  imdb: string;
+  imdb: number;
+  backdrop:string;
 };
 
 const Index: React.FC = () => {
@@ -40,10 +41,11 @@ const Index: React.FC = () => {
           ) : (
             <div className={`${styles.content.style} ${styles.content.responsive}`}>
               <HeroCard
-                id={films[0].id}
-                title={films[0].title}
-                desc={films[0].info}
-                imdb={films[0].imdb}
+                id={films[1].id}
+                title={films[1].title}
+                desc={films[1].info}
+                imdb={films[1].imdb}
+                backdrop={films[1].backdrop}
               />
               <div className={`${styles.filmContent.style}`}>
                 {films.map((item: any) => (

@@ -16,7 +16,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Film | Error>) 
         .then((querySnapshot: DocumentData) => {
             const response = querySnapshot.docs.map((doc: any) => ({
                 id: doc.id,
-                poster: doc.data().poster
+                poster: doc.data().details.poster_path
             }));
             res.status(200).json(response)
         }).catch((err) => {

@@ -11,7 +11,7 @@ export const FilmCardContainer: React.FC<FilmCardProps> = ({ id, poster }) => {
     <Link href={`/series/${id}`}>
       <Image
         className={`${styles.posterImage.style} ${styles.posterImage.responsive}`}
-        src={poster}
+        src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`}
         width={170}
         height={300}
         alt="poster"
@@ -23,6 +23,6 @@ export const FilmCardContainer: React.FC<FilmCardProps> = ({ id, poster }) => {
 const styles = {
   posterImage: {
     style: `rounded-lg `,
-    responsive: `sm:w-[145px] md:w-[170px] w-[130px] `,
+    responsive: ` md:w-[140px] w-[130px] `,
   },
 };

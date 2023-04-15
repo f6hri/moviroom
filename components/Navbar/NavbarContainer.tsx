@@ -29,7 +29,7 @@ export const NavbarContainer: React.FC = () => {
 
 const styles = {
   root: {
-    style: `py-3 bg-dark sticky top-0 z-20 `,
+    style: `py-3 bg-dark sticky top-0 z-30 `,
     responsive: `md:hidden block `,
   },
   navContent: {

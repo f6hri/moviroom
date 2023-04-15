@@ -6,9 +6,10 @@ type Films = {
   id: string;
   title:string;
   poster:string;
+  backdrop:string;
   date:string;
   imdb:string;
-  genre:string;
+  genres:Object[];
   info:string;
 }
 type Error = {
@@ -23,11 +24,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Films | Error>)
       res.status(200).json({
         id:querySnapshot.id,
         title:querySnapshot.data().title,
-        poster:querySnapshot.data().poster,
-        date:querySnapshot.data().date,
-        imdb:querySnapshot.data().imdb,
-        genre:querySnapshot.data().genre,
-        info:querySnapshot.data().info
+        poster:querySnapshot.data().details.poster_path,
+        backdrop:querySnapshot.data().details.backdrop_path,
+        date:querySnapshot.data().details.first_air_date,
+        imdb:querySnapshot.data().details.vote_average.toFixed(1),
+        genres:querySnapshot.data().details.genres,
+        info:querySnapshot.data().details.overview
       })
     }).catch((err) => {
       res.status(400).json({

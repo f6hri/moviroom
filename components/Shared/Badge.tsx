@@ -1,5 +1,5 @@
 interface BadgeProps {
-    title: string;
+    title: string | number;
     color: string;
     customStyle?:string;
 }

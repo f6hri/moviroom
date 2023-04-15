@@ -15,6 +15,6 @@ module.exports = {
   nextConfig,
   reactStrictMode: true,
   images: {
-    domains: ['i0.wp.com'],
+    domains: ['i0.wp.com', 'www.themoviedb.org', "image.tmdb.org"],
   },
 };
