@@ -89,9 +89,9 @@ const Series: React.FC = () => {
                                     <DefaultLink href={`/watch/${id}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit bg-primary hover:bg-red-800 transition ease`}>
                                         İzle
                                     </DefaultLink>
-                                    <DefaultLink href={`https://www.youtube.com/watch?v=${detail.trailerYoutubeId}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit border border-primary text-primary hover:text-slate-100 hover:bg-primary transition ease`} rel="noopener noreferrer" target="_blank">
+                                    <a href={`https://www.youtube.com/watch?v=${detail.trailerYoutubeId}`} className={`font-medium text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit border border-primary text-primary hover:text-slate-100 hover:bg-primary transition ease`} rel="noopener noreferrer" target="_blank">
                                         Fragman İzle
-                                    </DefaultLink>
+                                    </a>
                                 </div>
                             </div>
                         </div>
