@@ -16,8 +16,8 @@ type Eposide = {
 }
 
 type Genre = {
-    id:number;
-    name:string
+    id: number;
+    name: string
 }
 
 type Detail = {
@@ -28,6 +28,7 @@ type Detail = {
     date: string;
     genres: Genre[];
     info: string;
+    trailerYoutubeId: string;
     eposides: Eposide[]
 }
 
@@ -40,6 +41,7 @@ const Series: React.FC = () => {
         date: "",
         genres: [],
         info: "",
+        trailerYoutubeId: "",
         eposides: []
     });
     const router = useRouter();
@@ -83,9 +85,14 @@ const Series: React.FC = () => {
                                     }
                                 </div>
                                 <p className={`text-lg`}>{detail.info}</p>
-                                <DefaultLink href={`/watch/${id}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit bg-primary hover:bg-red-800 transition ease`}>
-                                    İzle
-                                </DefaultLink>
+                                <div className={`flex md:gap-3 flex-col md:items-center flex-wrap md:flex-row`}>
+                                    <DefaultLink href={`/watch/${id}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit bg-primary hover:bg-red-800 transition ease`}>
+                                        İzle
+                                    </DefaultLink>
+                                    <DefaultLink href={`https://www.youtube.com/watch?v=${detail.trailerYoutubeId}`} customStyle={`text-lg md:p-1 p-3 md:px-8 md:mt-0 mt-5  rounded-lg md:w-fit border border-primary text-primary hover:text-slate-100 hover:bg-primary transition ease`} rel="noopener noreferrer" target="_blank">
+                                        Fragman İzle
+                                    </DefaultLink>
+                                </div>
                             </div>
                         </div>
                     </Hero>

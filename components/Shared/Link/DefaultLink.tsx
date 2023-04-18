@@ -5,9 +5,10 @@ export const DefaultLink: React.FC<LinkProps> = ({
   href,
   children,
   customStyle,
+  props
 }) => {
   return (
-    <NextLink href={href} className={`font-medium ${customStyle}`}>
+    <NextLink {...props} href={href} className={`font-medium ${customStyle}`}>
       {children}
     </NextLink>
   );
